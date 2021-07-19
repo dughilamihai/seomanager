@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "3bd63fe3ae61e23345f4d6eecb3a3e9c",
+    "content-hash": "958a41589d5446fe1a7343a80e69231b",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -154,6 +154,83 @@
                 "source": "https://github.com/Laravel-Backpack/CRUD/tree/4.1.48"
             },
             "time": "2021-06-23T07:23:44+00:00"
+        },
+        {
+            "name": "backpack/permissionmanager",
+            "version": "6.0.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
+                "reference": "b605c2ce298e18c1443c47f6bbdfdf98b7e645b2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/b605c2ce298e18c1443c47f6bbdfdf98b7e645b2",
+                "reference": "b605c2ce298e18c1443c47f6bbdfdf98b7e645b2",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.1.0",
+                "spatie/laravel-permission": "^4.0|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0||^7.0",
+                "scrutinizer/ocular": "~1.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Backpack\\PermissionManager\\PermissionManagerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Backpack\\PermissionManager\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "proprietary"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Constantin",
+                    "email": "marius@updivision.com",
+                    "homepage": "http://www.updivision.com",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "tabacitu@backpackforlaravel.com",
+                    "homepage": "https://backpackforlaravel.com",
+                    "role": "Chief Architect"
+                }
+            ],
+            "description": "Users and permissions management interface for Laravel 5 using Backpack CRUD.",
+            "homepage": "https://github.com/laravel-backpack/permissionmanager",
+            "keywords": [
+                "backpack",
+                "backpack permission",
+                "backpack roles",
+                "backpack user management",
+                "laravel backpack",
+                "manage permission",
+                "manage roles",
+                "manage users",
+                "tabacitu",
+                "updivision",
+                "users roles admin"
+            ],
+            "support": {
+                "issues": "https://github.com/Laravel-Backpack/PermissionManager/issues",
+                "source": "https://github.com/Laravel-Backpack/PermissionManager/tree/6.0.9"
+            },
+            "time": "2021-05-24T14:20:57+00:00"
         },
         {
             "name": "brick/math",
@@ -1673,16 +1750,16 @@
         },
         {
             "name": "league/commonmark",
-            "version": "1.6.5",
+            "version": "1.6.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/thephpleague/commonmark.git",
-                "reference": "44ffd8d3c4a9133e4bd0548622b09c55af39db5f"
+                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/44ffd8d3c4a9133e4bd0548622b09c55af39db5f",
-                "reference": "44ffd8d3c4a9133e4bd0548622b09c55af39db5f",
+                "url": "https://api.github.com/repos/thephpleague/commonmark/zipball/c4228d11e30d7493c6836d20872f9582d8ba6dcf",
+                "reference": "c4228d11e30d7493c6836d20872f9582d8ba6dcf",
                 "shasum": ""
             },
             "require": {
@@ -1770,7 +1847,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2021-06-26T11:57:13+00:00"
+            "time": "2021-07-17T17:13:23+00:00"
         },
         {
             "name": "league/flysystem",
@@ -3017,6 +3094,84 @@
                 }
             ],
             "time": "2020-08-18T17:17:46+00:00"
+        },
+        {
+            "name": "spatie/laravel-permission",
+            "version": "4.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/laravel-permission.git",
+                "reference": "a6e4122b65094baba7f98df153af0768ef910c85"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/laravel-permission/zipball/a6e4122b65094baba7f98df153af0768ef910c85",
+                "reference": "a6e4122b65094baba7f98df153af0768ef910c85",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/auth": "^6.0|^7.0|^8.0",
+                "illuminate/container": "^6.0|^7.0|^8.0",
+                "illuminate/contracts": "^6.0|^7.0|^8.0",
+                "illuminate/database": "^6.0|^7.0|^8.0",
+                "php": "^7.2.5|^8.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "^4.0|^5.0|^6.0",
+                "phpunit/phpunit": "^8.0|^9.0",
+                "predis/predis": "^1.1"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Spatie\\Permission\\PermissionServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\Permission\\": "src"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be",
+                    "homepage": "https://spatie.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Permission handling for Laravel 6.0 and up",
+            "homepage": "https://github.com/spatie/laravel-permission",
+            "keywords": [
+                "acl",
+                "laravel",
+                "permission",
+                "permissions",
+                "rbac",
+                "roles",
+                "security",
+                "spatie"
+            ],
+            "support": {
+                "issues": "https://github.com/spatie/laravel-permission/issues",
+                "source": "https://github.com/spatie/laravel-permission/tree/4.2.0"
+            },
+            "funding": [
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
+                }
+            ],
+            "time": "2021-06-04T23:47:08+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
