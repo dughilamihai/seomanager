@@ -307,12 +307,16 @@ class SiteCrudController extends CrudController
                 ],   
                 [
                     'label'     => "Tags",
-                    'type'      => "select_multiple",
+                    'type'      => 'select2_multiple',
                     'name'      => 'tags',
                     'entity'    => 'tags',
-                    'attribute' => "name",
+                    'attribute' => 'name',
                     'model'     => "App\Models\Tag",
-                 ],                                      
+                    'pivot'     => true,
+                    'options'   => (function ($query) {
+                        return $query->orderBy('name', 'ASC')->get();
+                    }),
+                ],                                 
                 
             ]
         );

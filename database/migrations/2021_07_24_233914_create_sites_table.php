@@ -15,13 +15,18 @@ class CreateSitesTable extends Migration
     {
         Schema::create('sites', function (Blueprint $table) {
             $table->id();
-            $table->json('name');
-            $table->json('description'); 
-            $table->json('meta_title')->nullable();    
-            $table->json('meta_description')->nullable();               
+            $table->string('name',80);
+            $table->string('description', 1024);
+            $table->string('meta_title', 70)->nullable();
+            $table->string('meta_description', 160)->nullable();          
             $table->boolean('is_active')->default(0);  
             $table->boolean('is_dofollow')->nullable();  
-            $table->boolean('is_free')->nullable();              
+            $table->boolean('is_free')->nullable();  
+            $table->boolean('link_in_bio')->nullable();  
+            $table->integer('approve')->default(0); 
+            $table->date('submitted_date')->nullable();
+            $table->date('approved_date')->nullable();                                                 
+            $table->boolean('link_in_comments')->nullable();                                        
             $table->string('slug')->unique()->nullable();
             $table->string('url', 255);  
             $table->string('cover', 255)->nullable(); 
@@ -30,9 +35,10 @@ class CreateSitesTable extends Migration
             $table->integer('da')->nullable();   
             $table->integer('total_links')->nullable();     
             $table->date('contact_sent')->nullable(); 
-            $table->date('contact_response')->nullable();    
-            $table->json('about_response')->nullable();   
-            $table->integer('price')->nullable();       
+            $table->date('contact_response')->nullable(); 
+            $table->text('about_response')->nullable();               
+            $table->integer('price')->nullable(); 
+            $table->text('about_buy_item')->nullable();                             
             $table->string('analytics', 255)->nullable();                                                               
             $table->integer('parent_id')->default(0)->nullable();
             $table->integer('lft')->default(0); 

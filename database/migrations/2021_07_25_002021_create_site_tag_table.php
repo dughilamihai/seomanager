@@ -19,7 +19,7 @@ class CreateSiteTagTable extends Migration
 
             $table->foreign('tag_id')
                 ->references('id')
-                ->on('tags')->onDelete('set null');
+                ->on('tags')->onDelete('restrict');
 
             $table->foreign('site_id')
                 ->references('id')

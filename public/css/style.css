@@ -1,0 +1,146 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    background-color: #e7e9ec;
+}
+
+.clear {
+    padding-top: 30px;
+    clear: both;
+}
+
+
+.flex_card {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    flex: 1 0 calc(25% - 10px);
+    margin: 5px;
+    border: 1px solid #dadcdf;
+}
+
+/* site page */
+.site {
+    background-color: #ffffff;
+    padding: 15px;
+    border-radius: 5px;
+    margin: 20px 10px;
+    border: 1px solid #dadcdf;
+    flex-direction: column;
+    display: flex;
+    flex-basis: 100%;
+}
+
+.description {
+    line-height: 1.7em;
+}
+
+.red-button {
+    background-color: #f44336;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.red-button:hover {
+    background-color: #fa594d;
+}
+
+.tags {
+    margin: 0px 0px 20px 0px;
+    font-size: 24px !important;
+    padding: 10px;
+}
+
+.red {
+    color: #f44336;
+}
+
+.green {
+    color: #059100;
+}
+
+/* end site page */
+
+.card a {
+    font-size: 24px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3em 1.5em;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 768px) {
+    nav {
+        flex-direction: row;
+    }
+}
+
+nav a {
+    flex: 1;
+    text-align: center;
+    margin: 0.25em;
+    padding: 0.25em;
+    border: 1px solid #ddd;
+    text-decoration: none;
+
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: #7c69ef;
+    text-decoration: none;
+}
+
+.tag {
+    background-color: #ffffff;
+    padding: 5px 10px;
+    text-transform: uppercase;
+    font-size: 1.4em;
+    float: left;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid #7c69ef;
+
+}
+
+.tag:hover,
+.tag:hover a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.tag:hover {
+    background-color: #7c69ef;
+    cursor: pointer;
+}
+
+@media (max-width: 600px) {
+    .flex_card {
+        flex-direction: column-reverse;
+    }
+}

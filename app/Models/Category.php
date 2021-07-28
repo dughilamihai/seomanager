@@ -5,12 +5,10 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
-use Spatie\Translatable\HasTranslations;
 
 class Category extends Model
 {
     use CrudTrait;
-    use HasTranslations;    
 
     /*
     |--------------------------------------------------------------------------
@@ -25,7 +23,6 @@ class Category extends Model
     protected $fillable = ['name','slug'];
     // protected $hidden = [];
     // protected $dates = [];
-    public $translatable = ['name','slug'];      
 
     /*
     |--------------------------------------------------------------------------

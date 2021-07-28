@@ -4,12 +4,10 @@ namespace App\Models;
 
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
-use Backpack\CRUD\app\Models\Traits\SpatieTranslatable\HasTranslations;
 
 class Language extends Model
 {
-    use CrudTrait;
-    use HasTranslations;        
+    use CrudTrait;      
 
     /*
     |--------------------------------------------------------------------------
@@ -23,8 +21,7 @@ class Language extends Model
     protected $guarded = ['id'];
     protected $fillable = ['name','abbrev','is_active','slug'];
     // protected $hidden = [];
-    // protected $dates = [];
-    protected $translatable = ['name','slug'];       
+    // protected $dates = [];     
 
     /*
     |--------------------------------------------------------------------------
