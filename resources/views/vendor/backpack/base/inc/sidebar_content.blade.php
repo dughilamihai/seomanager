@@ -14,7 +14,7 @@
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('website-type') }}'><i class='nav-icon la la-file'></i> Website Types</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('language') }}'><i class='nav-icon la la-language'></i> Languages</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('tag') }}'><i class='nav-icon la la-tags'></i> Tags</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('approve') }}'><i class='nav-icon la la-question'></i> Approve Comments?</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('site') }}'><i class='nav-icon la la-list'></i> Sites</a></li>
+<li class='nav-item'><a class='nav-link' href='{{ backpack_url('comment') }}'><i class='nav-icon la la-key'></i> Comments</a></li>
 <li class='nav-item'><a class='nav-link' href='{{ backpack_url('page') }}'><i class='nav-icon la la-file-o'></i> <span>Pages</span></a></li>
-
-<li class='nav-item'><a class='nav-link' href='{{ backpack_url('comment') }}'><i class='nav-icon la la-question'></i> Comments</a></li>

@@ -15,19 +15,19 @@ class CreateCommentsTable extends Migration
     {
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
-            $table->boolean('is_active')->default(0);              
-            $table->text('comment');               
+            $table->boolean('is_active')->default(0);
+            $table->text('comment');
             $table->timestamps();
 
-            $table->foreignId('user_id');             
+            $table->foreignId('user_id');
             $table->foreign('user_id')
                 ->references('id')
-                ->on('users');    
+                ->on('users');
 
-            $table->foreignId('site_id');             
+            $table->foreignId('site_id');
             $table->foreign('site_id')
                 ->references('id')
-                ->on('sites'); 
+                ->on('sites');
         });
     }
 

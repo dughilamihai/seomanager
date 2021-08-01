@@ -26,6 +26,10 @@ class Site extends Model
         'is_active',
         'is_dofollow',
         'is_free',
+        'link_in_bio',
+        'link_in_comments',
+        'submitted_date',
+        'approved_date',
         'name',
         'slug',
         'user_id',
@@ -44,11 +48,12 @@ class Site extends Model
         'price',
         'analytics',
         'category_id',
+        'approve_id',
         'website_type_id',
         'language_id',
     ];
     // protected $hidden = [];
-    // protected $dates = [];   
+    // protected $dates = [];
 
     /*
     |--------------------------------------------------------------------------
@@ -71,6 +76,11 @@ class Site extends Model
     public function category()
     {
         return $this->belongsTo(Category::class);
+    }
+
+    public function approve()
+    {
+        return $this->belongsTo(Approve::class);
     }
 
     public function website_type()
@@ -135,9 +145,9 @@ class Site extends Model
     {
         $attribute_name = "cover";
         // or use your own disk, defined in config/filesystems.php
-        $disk = config('backpack.base.root_disk_name');
+        $disk = config('filesystems.public');
         // destination path relative to the disk above
-        $destination_path = "public/uploads/images/cover";
+        $destination_path = "public/uploads/cover";
 
         // if the image was erased
         if ($value == null) {
@@ -167,7 +177,7 @@ class Site extends Model
             \Storage::disk($disk)->delete($this->{$attribute_name});
 
             // 4. Save the public path to the database
-            // but first, remove "public/" from the path, since we're pointing to it 
+            // but first, remove "public/" from the path, since we're pointing to it
             // from the root folder; that way, what gets saved in the db
             // is the public URL (everything that comes after the domain name)
             $public_destination_path = Str::replaceFirst('public/', '', $destination_path);
@@ -179,9 +189,9 @@ class Site extends Model
     {
         $attribute_name = "analytics";
         // or use your own disk, defined in config/filesystems.php
-        $disk = config('backpack.base.root_disk_name');
+        $disk = config('filesystems.public');
         // destination path relative to the disk above
-        $destination_path = "public/uploads/images/analytics";
+        $destination_path = "public/uploads/analytics";
 
         // if the image was erased
         if ($value == null) {
@@ -207,7 +217,7 @@ class Site extends Model
             \Storage::disk($disk)->delete($this->{$attribute_name});
 
             // 4. Save the public path to the database
-            // but first, remove "public/" from the path, since we're pointing to it 
+            // but first, remove "public/" from the path, since we're pointing to it
             // from the root folder; that way, what gets saved in the db
             // is the public URL (everything that comes after the domain name)
             $public_destination_path = Str::replaceFirst('public/', '', $destination_path);

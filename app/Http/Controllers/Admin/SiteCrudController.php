@@ -22,7 +22,7 @@ class SiteCrudController extends CrudController
 
     /**
      * Configure the CrudPanel object. Apply settings to all operations.
-     * 
+     *
      * @return void
      */
     public function setup()
@@ -30,12 +30,12 @@ class SiteCrudController extends CrudController
         CRUD::setModel(\App\Models\Site::class);
         CRUD::setRoute(config('backpack.base.route_prefix') . '/site');
         CRUD::setEntityNameStrings('site', 'sites');
-        $this->crud->orderBy('lft', 'asc'); 
+        $this->crud->orderBy('lft', 'asc');
     }
 
     /**
      * Define what happens when the List operation is loaded.
-     * 
+     *
      * @see  https://backpackforlaravel.com/docs/crud-operation-list-entries
      * @return void
      */
@@ -52,7 +52,7 @@ class SiteCrudController extends CrudController
                     'label' => 'Slug',
                     'type'  => 'text',
                     'name'  => 'slug'
-                ],                
+                ],
                 [
                     'label' => 'Description',
                     'type'  => 'text',
@@ -87,7 +87,7 @@ class SiteCrudController extends CrudController
                                     1 => "Paid"
                                 ],
                     'default' => 1
-                ], 
+                ],
                 [
                     'label'     => "Category",
                     'type'      => "select",
@@ -103,7 +103,7 @@ class SiteCrudController extends CrudController
                     'entity'    => 'website_type',
                     'attribute' => "name",
                     'model'     => "App\Models\WebsiteType",
-                ],        
+                ],
                 [
                     'label'     => "Tags",
                     'type'      => "select_multiple",
@@ -111,20 +111,20 @@ class SiteCrudController extends CrudController
                     'entity'    => 'tags',
                     'attribute' => "name",
                     'model'     => "App\Models\Tag",
-                 ],       
+                 ],
             ]
         );
 
         /**
          * Columns can be defined using the fluent syntax or array syntax:
          * - CRUD::column('price')->type('number');
-         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']); 
+         * - CRUD::addColumn(['name' => 'price', 'type' => 'number']);
          */
     }
 
     /**
      * Define what happens when the Create operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-create
      * @return void
      */
@@ -142,7 +142,6 @@ class SiteCrudController extends CrudController
                                     0 => "Disable",
                                     1 => "Active"
                                 ],
-                    'default' => 1
                 ],
                 [
                     'name'    => 'is_dofollow',
@@ -152,18 +151,57 @@ class SiteCrudController extends CrudController
                                     0 => "Dofollow",
                                     1 => "Nofollow"
                                 ],
-                    'default' => 1
                 ],
                 [
                     'name'    => 'is_free',
-                    'label'   => 'Status',
+                    'label'   => 'Directory Type',
                     'type'    => 'radio',
                     'options' => [
                                     0 => "Free",
                                     1 => "Paid"
                                 ],
-                    'default' => 1
-                ], 
+                ],
+                [
+                    'name'    => 'link_in_bio',
+                    'label'   => 'Status',
+                    'type'    => 'radio',
+                    'options' => [
+                                    0 => "Approve link in bio?",
+                                    1 => "NO"
+                                ],
+                    'hint'  => 'If approve link in bio for forum, blogs'
+                ],
+                [
+                    'name'    => 'link_in_comments',
+                    'label'   => 'Status',
+                    'type'    => 'radio',
+                    'options' => [
+                                    0 => "Allow link in comments?",
+                                    1 => "NO"
+                                ],
+                    'hint'  => 'If allow link in comments for forum, blogs'
+                ],
+                [
+                    'label'     => "Approve comments",
+                    'type'      => 'select2',
+                    'name'      => 'approve_id',
+                    'entity'    => 'approve',
+                    'attribute' => 'name',
+                    'model'     => "App\Models\Approve",
+                    'options'   => (function ($query) {
+                        return $query->orderBy('name', 'ASC')->get();
+                    }),
+                ],
+                [
+                    'label' => 'Submit for approve comment/site',
+                    'type'  => 'date',
+                    'name'  => 'submitted_date',
+                ],
+                [
+                    'label' => 'Approved date',
+                    'type'  => 'date',
+                    'name'  => 'approved_date',
+                ],
                 [
                     'label' => 'Name',
                     'type'  => 'text',
@@ -179,7 +217,7 @@ class SiteCrudController extends CrudController
                     'min'   => 5,
                     'max'   => 255,
                     'hint'  => 'Minimum of 5 characters - Maximum of 255 characters'
-                ],                
+                ],
                 [
                     'label' => 'Description',
                     'type'  => 'ckeditor',
@@ -188,7 +226,7 @@ class SiteCrudController extends CrudController
                     'min'   => 50,
                     'max'   => 1024,
                     'hint'  => 'Minimum of 50 characters - Maximum of 1024 characters'
-                ],                                               
+                ],
                 [
                     'label' => 'Meta title',
                     'type'  => 'text',
@@ -240,10 +278,16 @@ class SiteCrudController extends CrudController
                     'name'  => 'contact_sent',
                 ],
                 [
+                    'name' => 'price',
+                    'label' => 'Price',
+                    'type' => 'number',
+                    'hint'  => 'Price to submit / advertorial',
+                ],
+                [
                     'label' => 'Response contact to owner',
                     'type'  => 'date',
                     'name'  => 'contact_response',
-                ],   
+                ],
                 [
                     'label' => 'Response from owner',
                     'type'  => 'ckeditor',
@@ -251,7 +295,7 @@ class SiteCrudController extends CrudController
                     'min'   => 2,
                     'max'   => 255,
                     'hint'  => 'Minimum of 2 characters - Maximum of 255 characters'
-                ],  
+                ],
                 [
                     'label'        => "Analytics stats pic",
                     'name'         => "analytics",
@@ -260,7 +304,7 @@ class SiteCrudController extends CrudController
                     'hint'         => 'Respect 1:1 ratio (We highly recommend to upload a 300x25 image).',
                     'crop'         => true,
                     'aspect_ratio' => 1,
-                ],   
+                ],
                 [
                     'label'     => "Category",
                     'type'      => 'select2',
@@ -282,7 +326,7 @@ class SiteCrudController extends CrudController
                     'options'   => (function ($query) {
                         return $query->orderBy('name', 'ASC')->get();
                     }),
-                ],               
+                ],
                 [
                     'label'     => "Website type",
                     'type'      => 'select2',
@@ -293,7 +337,7 @@ class SiteCrudController extends CrudController
                     'options'   => (function ($query) {
                         return $query->orderBy('name', 'ASC')->get();
                     }),
-                ],          
+                ],
                 [
                     'label'     => "Language",
                     'type'      => 'select2',
@@ -304,7 +348,7 @@ class SiteCrudController extends CrudController
                     'options'   => (function ($query) {
                         return $query->orderBy('abbrev', 'ASC')->get();
                     }),
-                ],   
+                ],
                 [
                     'label'     => "Tags",
                     'type'      => 'select2_multiple',
@@ -316,21 +360,21 @@ class SiteCrudController extends CrudController
                     'options'   => (function ($query) {
                         return $query->orderBy('name', 'ASC')->get();
                     }),
-                ],                                 
-                
+                ],
+
             ]
         );
 
         /**
          * Fields can be defined using the fluent syntax or array syntax:
          * - CRUD::field('price')->type('number');
-         * - CRUD::addField(['name' => 'price', 'type' => 'number'])); 
+         * - CRUD::addField(['name' => 'price', 'type' => 'number']));
          */
     }
 
     /**
      * Define what happens when the Update operation is loaded.
-     * 
+     *
      * @see https://backpackforlaravel.com/docs/crud-operation-update
      * @return void
      */
@@ -338,7 +382,7 @@ class SiteCrudController extends CrudController
     {
         $this->setupCreateOperation();
     }
-   
+
     /*
     https://backpackforlaravel.com/docs/4.1/crud-operation-create#documentation-box
     public function store()
@@ -350,14 +394,14 @@ class SiteCrudController extends CrudController
       // do something after save
       return $response;
     }*/
-          
+
 
     protected function setupReorderOperation()
     {
-        // define which model attribute will be shown on draggable elements 
+        // define which model attribute will be shown on draggable elements
         $this->crud->set('reorder.label', 'name');
         // define how deep the admin is allowed to nest the items
         // for infinite levels, set it to 0
         $this->crud->set('reorder.max_level', 2);
-    } 
+    }
 }

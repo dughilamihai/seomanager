@@ -5,7 +5,7 @@ namespace App\Models;
 use Backpack\CRUD\app\Models\Traits\CrudTrait;
 use Illuminate\Database\Eloquent\Model;
 
-class Tag extends Model
+class Approve extends Model
 {
     use CrudTrait;
 
@@ -15,11 +15,11 @@ class Tag extends Model
     |--------------------------------------------------------------------------
     */
 
-    protected $table = 'tags';
+    protected $table = 'approves';
     // protected $primaryKey = 'id';
     // public $timestamps = false;
     protected $guarded = ['id'];
-    protected $fillable = ['name','slug'];
+    // protected $fillable = [];
     // protected $hidden = [];
     // protected $dates = [];
 
@@ -36,7 +36,7 @@ class Tag extends Model
     */
     public function sites()
     {
-        return $this->belongsToMany(Site::class);
+        return $this->hasMany(Site::class);
     }
     /*
     |--------------------------------------------------------------------------

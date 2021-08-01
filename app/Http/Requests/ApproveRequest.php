@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use App\Http\Requests\Request;
 use Illuminate\Foundation\Http\FormRequest;
 
-class SiteRequest extends FormRequest
+class ApproveRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,11 +26,8 @@ class SiteRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'          => 'required|min:2|max:255',
-            'description'   => 'required|min:3|max:2056',
-            'url'           => 'required|min:5|max:1024',
-            'category_id'    => 'required',
-            'website_type_id'    => 'required',
+            'name' => 'required|min:2|max:60',
+            'slug' => 'required|min:2|max:60'
         ];
     }
 

@@ -11,13 +11,13 @@ class CategoryController extends Controller
 {
     public function show($slug)
     {
-        $category = Category::where('slug', $slug)->first(); 
+        $category = Category::where('slug', $slug)->first();
         $sites = Site::where('category_id', $category->id)
                ->orderBy('name')
                ->take(12)
-               ->get();   
+               ->get();
 
 
-         return view('layouts.category', compact('sites'));
+         return view('layouts.category', compact('sites','category'));
     }
 }
